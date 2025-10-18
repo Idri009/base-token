@@ -2,17 +2,17 @@
 pragma solidity ^0.8.13;
 
 import {Script} from "forge-std/Script.sol";
-import {BasedToken} from "../src/BasedToken.sol";
+import {BaseToken} from "../src/BaseToken.sol";
 
-contract BasedTokenScript is Script {
-    BasedToken public basedToken;
+contract BaseScript is Script {
+    BaseToken public baseToken;
 
     function setUp() public {}
 
     function run() public {
         vm.startBroadcast();
 
-        basedToken = new BasedToken();
+        baseToken = new BaseToken();
 
         vm.stopBroadcast();
     }

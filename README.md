@@ -1,66 +1,52 @@
-## Foundry
+# Base Token
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+A simple ERC20 token implementation built with Foundry for educational purposes, using OpenZeppelin's secure and battle-tested smart contract libraries.
 
-Foundry consists of:
+## Overview
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+Base Token demonstrates basic smart contract development patterns:
 
-## Documentation
+- **ERC20 Standard**: Standard token functionality (transfer, approve, allowance)
+- **Access Control**: Owner-only minting using OpenZeppelin's AccessControl
+- **Testing**: Complete test suite using Forge
+- **Security**: Built with OpenZeppelin contracts for maximum security
 
-https://book.getfoundry.sh/
+## Token Details
 
-## Usage
+- **Name**: Base
+- **Symbol**: BASE
+- **Initial Supply**: 1,000 tokens
+- **Decimals**: 18
 
-### Build
+## Getting Started
 
-```shell
-$ forge build
+### Prerequisites
+- [Foundry](https://book.getfoundry.sh/getting-started/installation) installed
+
+### Installation
+```bash
+git clone <repository-url>
+cd based-token
+forge install
+forge build
 ```
 
-### Test
-
-```shell
-$ forge test
+### Testing
+```bash
+forge test
 ```
 
-### Format
-
-```shell
-$ forge fmt
+### Deployment
+```bash
+forge script script/BaseToken.s.sol --rpc-url <RPC_URL> --private-key <PRIVATE_KEY> --broadcast
 ```
 
-### Gas Snapshots
+## Key Functions
 
-```shell
-$ forge snapshot
-```
+- `mint(address to, uint256 amount)` - Mint tokens (owner only)
+- Standard ERC20 functions: `transfer`, `approve`, `transferFrom`
+- `hasRole(bytes32 role, address account)` - Check permissions
 
-### Anvil
+## Security Notice
 
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+⚠️ **Educational project only** - Not for production use without proper security audits.
